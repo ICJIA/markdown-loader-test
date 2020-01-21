@@ -1,0 +1,80 @@
+{
+  "name": "markdown-loader-test",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "node generateSitemap.js && vue-cli-service serve",
+    "build": "node generateSitemap.js && vue-cli-service build",
+    "deploy": "now",
+    "deploy:prod": "now --prod",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "cache-loader": "^4.1.0",
+    "core-js": "^3.6.4",
+    "dotenv": "^8.2.0",
+    "front-matter": "^3.1.0",
+    "fuse.js": "^3.4.6",
+    "glob": "^7.1.6",
+    "loader-utils": "^1.2.3",
+    "lodash.camelcase": "^4.3.0",
+    "lodash.debounce": "^4.0.8",
+    "lodash.upperfirst": "^4.3.1",
+    "markdown-it": "^10.0.0",
+    "markdown-it-attrs": "^3.0.1",
+    "markdown-it-footnote": "^3.0.2",
+    "markdown-it-named-headers": "0.0.4",
+    "moment": "^2.24.0",
+    "node-eval": "^2.0.0",
+    "sitemap": "^5.1.0",
+    "slugs": "^0.1.3",
+    "stylus-loader": "^3.0.2",
+    "vue": "^2.6.11",
+    "vue-analytics": "^5.22.1",
+    "vue-browser-detect-plugin": "^0.1.5",
+    "vue-meta": "^2.3.2",
+    "vue-router": "^3.1.5",
+    "vue-router-back-button": "^1.2.3",
+    "vuetify": "^2.2.4",
+    "vuex": "^3.1.2"
+  },
+  "devDependencies": {
+    "@mdi/font": "^4.7.95",
+    "@vue/cli-plugin-babel": "^4.1.2",
+    "@vue/cli-plugin-eslint": "^4.1.2",
+    "@vue/cli-plugin-router": "^4.1.2",
+    "@vue/cli-plugin-vuex": "^4.1.2",
+    "@vue/cli-service": "^4.1.2",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.8.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-vue": "^6.1.2",
+    "node-sass": "^4.13.1",
+    "prettier": "^1.19.1",
+    "sass": "^1.24.4",
+    "sass-loader": "^8.0.2",
+    "vue-cli-plugin-moment": "^0.1.1",
+    "vue-cli-plugin-vuetify": "^2.0.3",
+    "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.4.3"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "@vue/prettier"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}
