@@ -20,7 +20,7 @@ const routes = [
   },
 
   {
-    path: "/sandbox/:slug",
+    path: "/sandbox",
     name: "sandbox",
 
     component: () =>

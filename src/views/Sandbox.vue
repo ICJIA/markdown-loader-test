@@ -20,7 +20,7 @@ export default {
   },
   created() {
     this.markdownContent = () =>
-      import(`@/markdown/${this.$route.params.slug}.md`)
+      import(`@/markdown/sandbox.md`)
         .then(fmd => {
           this.title = fmd.attributes.title;
           return {
