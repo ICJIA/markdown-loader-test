@@ -25,7 +25,7 @@
         })
       "
     >
-      Restore, Reinvest, and Renew (R3)
+      frontmatter-markdown-loader Test
     </div>
 
     <v-spacer></v-spacer>

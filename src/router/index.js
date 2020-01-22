@@ -4,14 +4,46 @@ import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
 
-// const LS_ROUTE_KEY = process.env.VUE_APP_LS_ROUTE_KEY;
-
-const routes = [
+const manualRoutes = [
   {
     path: "/",
     name: "home",
     component: Home
   },
+  {
+    path: "/sandbox",
+    name: "sandbox",
+
+    component: () =>
+      import(/* webpackChunkName: "sandbox" */ "../views/Sandbox.vue")
+  }
+];
+
+const generatedRoutes = [
+  {
+    path: "/test-one",
+    name: "test-one",
+
+    component: () =>
+      import(/* webpackChunkName: "test-one" */ "../views/Page.vue")
+  },
+  {
+    path: "/test-two",
+    name: "test-two",
+
+    component: () =>
+      import(/* webpackChunkName: "test-two" */ "../views/Page.vue")
+  },
+  {
+    path: "/folder-one/test-three",
+    name: "folder-one-test-three",
+
+    component: () =>
+      import(/* webpackChunkName: "test-three" */ "../views/Page.vue")
+  }
+];
+
+const fallBackRoutes = [
   {
     path: "/404",
     name: "404",
@@ -19,28 +51,15 @@ const routes = [
     component: () => import(/* webpackChunkName: "404" */ "../views/404.vue")
   },
 
-  {
-    path: "/sandbox",
-    name: "sandbox",
-
-    component: () =>
-      import(/* webpackChunkName: "sandbox" */ "../views/Sandbox.vue")
-  },
-  { path: "*", redirect: "/" }
+  { path: "*", redirect: "/404" }
 ];
+
+const routes = [...manualRoutes, ...generatedRoutes, ...fallBackRoutes];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes
 });
-
-// router.afterEach((to, from) => {
-//   try {
-//     localStorage.setItem(LS_ROUTE_KEY, from.path);
-//   } catch (e) {
-//     console.log(e);
-//   }
-// });
 
 export default router;

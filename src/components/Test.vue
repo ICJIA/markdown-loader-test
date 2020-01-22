@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>test</h1>
+    <h1>this is a Vue component</h1>
   </div>
 </template>
 

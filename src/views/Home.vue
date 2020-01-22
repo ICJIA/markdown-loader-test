@@ -24,7 +24,7 @@
               order-sm="2"
               class="markdown-body"
             >
-              <HomePageContent></HomePageContent>
+              <HomePageContent @hook:mounted="initToc"></HomePageContent>
             </v-col>
             <v-col
               v-if="showToc"
@@ -38,9 +38,8 @@
               <toc
                 selector="#scrollArea"
                 top="#baseContentTop"
-                :enable-tracking="true"
                 key="home"
-                :tocHeading="fm.attributes.navTitle"
+                :items="toc"
               />
             </v-col>
           </v-row>
@@ -57,16 +56,16 @@ import fm from "@/markdown/home.md";
 export default {
   metaInfo() {
     return {
-      title: "Restore, Reinvest, and Renew (R3)"
+      title: "Lorem markdownum Diomede"
     };
   },
   mounted() {
-    this.$ga.page({
-      page: this.$route.path,
-      title: "Restore, Reinvest, and Renew (R3)",
-      location: window.location.href
-    });
-    //console.log(this.$route.path, window.location.href);
+    // this.$ga.page({
+    //   page: this.$route.path,
+    //   title: "Restore, Reinvest, and Renew (R3)",
+    //   location: window.location.href
+    // });
+    console.log(this.$route.path, window.location.href);
   },
   components: {
     HomePageContent: {
@@ -77,8 +76,9 @@ export default {
   data() {
     return {
       title: fm.attributes.title,
-      showToc: true,
+      showToc: fm.attributes.showToc,
       loading: false,
+      toc: [],
       fm
     };
   },
@@ -89,6 +89,16 @@ export default {
       } else {
         return this.showToc ? "9" : "12";
       }
+    },
+    initToc() {
+      const sections = Array.from(document.querySelectorAll("h2"));
+      sections.forEach(section => {
+        let obj = {};
+        obj.text = section.innerText;
+        obj.id = section.id;
+        this.toc.push(obj);
+      });
+      console.log(this.toc);
     },
     slugify(str) {
       return slugs(str);
