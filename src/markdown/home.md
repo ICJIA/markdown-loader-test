@@ -12,7 +12,9 @@ _ait_, quid, Quas.
 Tum illa adducto. Mater Apollinis an veste, tu urbem, **mane meruit daret**
 longam in cauda saepe, tenuissima?
 
-[internal link](/test-one)
+- [internal link 1](/test-one)
+- [internal link 2](/test-two)
+- [Frequently Asked Questions](/faqs)
 
 ## Pater et sic saniem saevisque brevior populi
 
