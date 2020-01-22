@@ -1,6 +1,13 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Home from "@/views/Home.vue";
+const markdownRoutes = require("../../public/routes.json");
+
+const generatedRoutes = markdownRoutes.map(route => {
+  route.component = () =>
+    import(/* webpackChunkName: "404" */ "@/views/Page.vue");
+  return route;
+});
 
 Vue.use(VueRouter);
 
@@ -12,42 +19,12 @@ const manualRoutes = [
   }
 ];
 
-const generatedRoutes = [
-  {
-    path: "/test-one",
-    name: "test-one",
-
-    component: () =>
-      import(/* webpackChunkName: "test-one" */ "../views/Page.vue")
-  },
-  {
-    path: "/test-two",
-    name: "test-two",
-
-    component: () =>
-      import(/* webpackChunkName: "test-two" */ "../views/Page.vue")
-  },
-  {
-    path: "/folder-one/test-three",
-    name: "folder-one-test-three",
-
-    component: () =>
-      import(/* webpackChunkName: "test-three" */ "../views/Page.vue")
-  },
-  {
-    path: "/faqs",
-    name: "faqs",
-
-    component: () => import(/* webpackChunkName: "faqs" */ "../views/Page.vue")
-  }
-];
-
 const fallBackRoutes = [
   {
     path: "/404",
     name: "404",
 
-    component: () => import(/* webpackChunkName: "404" */ "../views/404.vue")
+    component: () => import(/* webpackChunkName: "404" */ "@/views/404.vue")
   },
 
   { path: "*", redirect: "/404" }
@@ -58,7 +35,10 @@ const routes = [...manualRoutes, ...generatedRoutes, ...fallBackRoutes];
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    return { x: 0, y: 0 };
+  }
 });
 
 export default router;

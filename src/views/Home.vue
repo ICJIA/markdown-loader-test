@@ -71,7 +71,7 @@ export default {
     //   title: "Restore, Reinvest, and Renew (R3)",
     //   location: window.location.href
     // });
-    console.log(this.$route.path, window.location.href);
+    //console.log(this.$route.path, window.location.href);
   },
   components: {
     HomePageContent: {
@@ -107,7 +107,7 @@ export default {
         obj.id = section.id;
         this.toc.push(obj);
       });
-      console.log(this.toc);
+      //console.log(this.toc);
     },
     slugify(str) {
       return slugs(str);

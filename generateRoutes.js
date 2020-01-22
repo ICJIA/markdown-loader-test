@@ -1,5 +1,7 @@
 const fs = require("fs");
 const path = require("path");
+const base = "src/markdown";
+const slugs = require("slugs");
 
 function findInDir(dir, filter, fileList = []) {
   const files = fs.readdirSync(dir);
@@ -18,4 +20,22 @@ function findInDir(dir, filter, fileList = []) {
   return fileList;
 }
 
-console.log(findInDir("./src/markdown/", /\.md$/));
+let paths = findInDir(base, /\.md$/);
+let generatedRoutes = [];
+
+paths.forEach(path => {
+  let routeObj = {};
+  routeObj.path = path.replace(base, "").replace(".md", "");
+  routeObj.name = slugs(routeObj.path);
+  generatedRoutes.push(routeObj);
+});
+
+const storeData = (data, path) => {
+  try {
+    fs.writeFileSync(path, JSON.stringify(data));
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+storeData(generatedRoutes, "./public/routes.json");
