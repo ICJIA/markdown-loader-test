@@ -11,7 +11,7 @@
         <p>The page you were looking for does not exist</p>
 
         <v-btn :to="`/`" color="primary" outlined>
-          Go Home
+          <v-icon left>home</v-icon>Back Home
         </v-btn>
       </v-col>
     </v-row>
