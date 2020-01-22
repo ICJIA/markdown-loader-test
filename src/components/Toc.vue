@@ -9,7 +9,7 @@
         $vuetify.breakpoint.xl,
       shaded: $vuetify.breakpoint.xs || $vuetify.breakpoint.xs
     }"
-    style=""
+    style="margin-top: -50px"
   >
     <div
       v-if="tocHeading.length"
@@ -75,18 +75,27 @@ export default {
   },
   methods: {
     handleScroll() {
+      const scrollPosition =
+        document.documentElement.scrollTop || document.body.scrollTop;
+
       const els = document.querySelectorAll("h2");
       const tocLinks = document.querySelectorAll(".tocItem");
+
+      if (scrollPosition < 100) {
+        tocLinks.forEach(link => {
+          link.classList.remove("visible");
+        });
+        this.$refs["anchor"].classList.add("visible");
+      } else {
+        this.$refs["anchor"].classList.remove("visible");
+      }
 
       els.forEach(el => {
         const elTop = el.getBoundingClientRect().top;
         const elBottom = el.getBoundingClientRect().bottom;
-        // if (el.id === "fortissime-et-coeptis-passa-nullo") {
-        //   console.log(el.id, elTop, elBottom);
-        // }
 
         if (elTop < 120) {
-          console.log(`add visible to scrollTo-${el.id}`);
+          // console.log(`add visible to scrollTo-${el.id}`);
           let tocEl = document.getElementById(`scrollTo-${el.id}`);
 
           tocLinks.forEach(link => {
@@ -97,7 +106,6 @@ export default {
       });
     },
     scrollTo(id) {
-      //console.log(id);
       this.$vuetify.goTo(`#${id}`, { offset: 15 });
     }
   }

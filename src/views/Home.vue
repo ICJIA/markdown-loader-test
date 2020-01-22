@@ -24,7 +24,11 @@
               order-sm="2"
               class="markdown-body"
             >
-              <HomePageContent @hook:mounted="initToc"></HomePageContent>
+              <HomePageContent
+                @hook:mounted="initToc"
+                @click.native="handleClicks"
+                class="dynamic-content"
+              ></HomePageContent>
             </v-col>
             <v-col
               v-if="showToc"
@@ -50,10 +54,12 @@
 </template>
 
 <script>
+import { handleClicks } from "@/mixins/handleClicks";
 const slugs = require("slugs");
 import fm from "@/markdown/home.md";
 
 export default {
+  mixins: [handleClicks],
   metaInfo() {
     return {
       title: "Lorem markdownum Diomede"
@@ -89,6 +95,9 @@ export default {
       } else {
         return this.showToc ? "9" : "12";
       }
+    },
+    test() {
+      console.log("click");
     },
     initToc() {
       const sections = Array.from(document.querySelectorAll("h2"));

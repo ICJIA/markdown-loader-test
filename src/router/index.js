@@ -9,13 +9,6 @@ const manualRoutes = [
     path: "/",
     name: "home",
     component: Home
-  },
-  {
-    path: "/sandbox",
-    name: "sandbox",
-
-    component: () =>
-      import(/* webpackChunkName: "sandbox" */ "../views/Sandbox.vue")
   }
 ];
 
@@ -40,6 +33,12 @@ const generatedRoutes = [
 
     component: () =>
       import(/* webpackChunkName: "test-three" */ "../views/Page.vue")
+  },
+  {
+    path: "/faqs",
+    name: "faqs",
+
+    component: () => import(/* webpackChunkName: "faqs" */ "../views/Page.vue")
   }
 ];
 

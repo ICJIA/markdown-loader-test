@@ -6,6 +6,8 @@ showToc: true
 
 ## Fortissime et co111eptis passa nullo
 
+[internal link](/test-one)
+
 Lorem markdownum Orchomenon iniuria silvas iacent virgineos [si quod](#vera) ita
 illa. Viridem Iuppiter. Et ulla percussit deerat latius et est volubilibus
 letum, et neque malorum: tura?

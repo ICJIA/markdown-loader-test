@@ -39,16 +39,12 @@
       <span class="mr-2">ICJIA</span>
       <v-icon>mdi-open-in-new</v-icon>
     </v-btn>
-    <!-- <v-app-bar-nav-icon
+    <v-app-bar-nav-icon
       aria-label="Menu"
       style="color: black"
       large
       @click="toggleDrawer"
-    /> -->
-    <!-- <v-btn small href="https://github.com/ICJIA/icjia-r3" target="_blank" text>
-      <span class="mr-2">Github</span>
-      <v-icon>mdi-open-in-new</v-icon>
-    </v-btn> -->
+    />
   </v-app-bar>
 </template>
 

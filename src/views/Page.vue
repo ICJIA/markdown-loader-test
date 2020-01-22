@@ -26,7 +26,12 @@
                   order-sm="2"
                   class="markdown-body"
                 >
-                  <component :is="markdownContent" @hook:mounted="initToc" />
+                  <component
+                    :is="markdownContent"
+                    @hook:mounted="initToc"
+                    @click.native="handleClicks"
+                    class="dynamic-content"
+                  />
                 </v-col>
                 <v-col
                   v-if="showToc"
@@ -55,8 +60,14 @@
 </template>
 
 <script>
+import { handleClicks } from "@/mixins/handleClicks";
+
 const slugs = require("slugs");
 export default {
+  mixins: [handleClicks],
+  watch: {
+    $route: "fetchContent"
+  },
   data() {
     return {
       attributes: {},
@@ -69,23 +80,27 @@ export default {
     };
   },
   created() {
-    this.loading = true;
-    this.markdownContent = () =>
-      import(`@/markdown${this.$route.path}.md`)
-        .then(fmd => {
-          this.title = fmd.attributes.title;
-          this.showToc = fmd.attributes.showToc;
-          this.loading = false;
-          return {
-            extends: fmd.vue.component
-          };
-        })
-        .catch(err => {});
+    this.fetchContent();
   },
   methods: {
+    fetchContent() {
+      this.loading = true;
+      this.markdownContent = () =>
+        import(`@/markdown${this.$route.path}.md`)
+          .then(fmd => {
+            this.title = fmd.attributes.title;
+            this.showToc = fmd.attributes.showToc;
+            this.loading = false;
+            return {
+              extends: fmd.vue.component
+            };
+          })
+          .catch(err => {});
+    },
     slugify(str) {
       return slugs(str);
     },
+
     dynamicFlex() {
       if (this.$vuetify.breakpoint.xs || this.$vuetify.breakpoint.sm) {
         return "12";
@@ -95,6 +110,7 @@ export default {
     },
     initToc() {
       let sections = Array.from(document.querySelectorAll("h2"));
+      //console.log(sections);
       sections.forEach(section => {
         let obj = {};
         obj.text = section.innerText;

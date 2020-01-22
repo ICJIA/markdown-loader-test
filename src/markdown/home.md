@@ -1,7 +1,7 @@
 ---
 title: "Lorem markdownum Diomede"
 showInSitemap: true
-showToc: false
+showToc: true
 ---
 
 ## Auditos adunca parientis quae
@@ -11,6 +11,8 @@ _ait_, quid, Quas.
 
 Tum illa adducto. Mater Apollinis an veste, tu urbem, **mane meruit daret**
 longam in cauda saepe, tenuissima?
+
+[internal link](/test-one)
 
 ## Pater et sic saniem saevisque brevior populi
 

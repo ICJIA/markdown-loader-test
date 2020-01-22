@@ -72,10 +72,7 @@ module.exports = function(source) {
 
   if (enabled(Mode.VUE_COMPONENT) || enabled(Mode.VUE_RENDER_FUNCTIONS)) {
     addProperty("html", stringify(fm.html));
-    const meta = {
-      resourcePath: this.resourcePath
-    };
-    addProperty("meta", stringify(meta));
+    addProperty("body", stringify(fm.body));
     let vueCompiler, compileVueTemplate;
     try {
       vueCompiler = require("vue-template-compiler");
