@@ -26,7 +26,7 @@ export default {
   metaInfo() {
     return {
       // if no subcomponents specify a metaInfo.title, this title will be used
-      title: "Restore, Reinvest, and Renew (R3)",
+      title: "frontmatter-markdown-loader Test",
       // all titles will be injected into this template
       titleTemplate: "%s",
       htmlAttrs: {
@@ -43,8 +43,7 @@ export default {
         {
           vmid: "description",
           name: "description",
-          content:
-            "Together with the R3 Board, ICJIA will award grant funds to community organizations that support economic development, provide violence prevention and reentry services, and offer youth development and civil legal aid. "
+          content: "frontmatter-markdown-loader Test "
         }
       ]
     };

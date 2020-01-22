@@ -38,10 +38,20 @@
 
 <script>
 export default {
+  data() {
+    return {
+      isActive: false,
+      offset: 100
+    };
+  },
   props: {
     items: {
       type: Array,
       default: () => []
+    },
+    sections: {
+      type: Array,
+      default: () => ["1"]
     },
     tocHeading: {
       type: String,
@@ -56,34 +66,36 @@ export default {
       default: true
     }
   },
-  mounted() {
-    if (this.enableTracking) {
-      window.onscroll = () => {
-        var scrollPosition =
-          document.documentElement.scrollTop || document.body.scrollTop;
-        const tocItems = document.querySelectorAll(".tocItem");
-        if (scrollPosition < 100) {
-          tocItems.forEach(toc => {
-            toc.classList.remove("visible");
-          });
-          this.$refs["anchor"].classList.add("visible");
-        } else {
-          this.$refs["anchor"].classList.remove("visible");
-        }
-        //console.log(scrollPosition);
-        // for (i in sections) {
-        //   if (sections[i] <= scrollPosition) {
-        //     const sectionItem = document.getElementById(`scrollTo-${i}`);
-        //     tocItems.forEach(toc => {
-        //       toc.classList.remove("visible");
-        //     });
-        //     sectionItem.classList.add("visible");
-        //   }
-        // }
-      };
-    }
+  async mounted() {},
+  created() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
+    handleScroll() {
+      const els = document.querySelectorAll("h2");
+      const tocLinks = document.querySelectorAll(".tocItem");
+
+      els.forEach(el => {
+        const elTop = el.getBoundingClientRect().top;
+        const elBottom = el.getBoundingClientRect().bottom;
+        // if (el.id === "fortissime-et-coeptis-passa-nullo") {
+        //   console.log(el.id, elTop, elBottom);
+        // }
+
+        if (elTop < 120) {
+          console.log(`add visible to scrollTo-${el.id}`);
+          let tocEl = document.getElementById(`scrollTo-${el.id}`);
+
+          tocLinks.forEach(link => {
+            link.classList.remove("visible");
+          });
+          tocEl.classList.add("visible");
+        }
+      });
+    },
     scrollTo(id) {
       //console.log(id);
       this.$vuetify.goTo(`#${id}`, { offset: 15 });

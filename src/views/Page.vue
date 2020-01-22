@@ -42,6 +42,7 @@
                     top="#baseContentTop"
                     key="home"
                     :items="toc"
+                    :sections="sections"
                   />
                 </v-col>
               </v-row>
@@ -63,7 +64,8 @@ export default {
       title: "",
       markdownContent: null,
       toc: [],
-      showToc: true
+      showToc: true,
+      sections: []
     };
   },
   created() {
@@ -92,14 +94,14 @@ export default {
       }
     },
     initToc() {
-      const sections = Array.from(document.querySelectorAll("h2"));
+      let sections = Array.from(document.querySelectorAll("h2"));
       sections.forEach(section => {
         let obj = {};
         obj.text = section.innerText;
         obj.id = section.id;
         this.toc.push(obj);
+        this.sections.push(`h2#${section.id}`);
       });
-      console.log(this.toc);
     }
   },
   mounted() {}
