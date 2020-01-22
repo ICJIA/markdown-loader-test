@@ -27,10 +27,13 @@ const fallBackRoutes = [
     component: () => import(/* webpackChunkName: "404" */ "@/views/404.vue")
   },
 
+  { path: "/home", redirect: "home" },
+
   { path: "*", redirect: "/404" }
 ];
 
 const routes = [...manualRoutes, ...generatedRoutes, ...fallBackRoutes];
+console.dir(routes);
 
 const router = new VueRouter({
   mode: "history",

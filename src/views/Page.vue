@@ -47,7 +47,6 @@
                     top="#baseContentTop"
                     key="home"
                     :items="toc"
-                    :sections="sections"
                   />
                 </v-col>
               </v-row>

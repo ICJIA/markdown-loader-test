@@ -27,7 +27,7 @@ paths.forEach(path => {
   let routeObj = {};
   routeObj.path = path.replace(base, "").replace(".md", "");
   routeObj.name = slugs(routeObj.path);
-  generatedRoutes.push(routeObj);
+  if (routeObj.path !== "/home") generatedRoutes.push(routeObj);
 });
 
 const storeData = (data, path) => {
