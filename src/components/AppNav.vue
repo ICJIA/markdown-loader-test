@@ -18,6 +18,7 @@
 
     <div
       class="nav-title ml-4 hover"
+      v-if="$store.getters.config"
       :class="{ small: $vuetify.breakpoint.xs || $vuetify.breakpoint.sm }"
       @click="
         $router.push('/').catch(err => {
@@ -25,7 +26,7 @@
         })
       "
     >
-      {{ siteTitle }}
+      {{ $store.getters.config.siteTitle }}
     </div>
 
     <v-spacer></v-spacer>
@@ -60,13 +61,7 @@ export default {
       siteTitle: ""
     };
   },
-  async created() {
-    const configPromise = process.BROWSER_BUILD
-      ? import("@/config.json")
-      : Promise.resolve(require("@/config.json"));
-    let config = await configPromise;
-    this.siteTitle = config.siteTitle;
-  },
+  created() {},
   methods: {
     toggleDrawer() {
       EventBus.$emit("toggleDrawer");

@@ -27,7 +27,7 @@ export default {
   metaInfo() {
     return {
       // if no subcomponents specify a metaInfo.title, this title will be used
-
+      title: this.siteTitle,
       // all titles will be injected into this template
       titleTemplate: "%s",
       htmlAttrs: {
@@ -44,7 +44,7 @@ export default {
         {
           vmid: "description",
           name: "description",
-          content: "Test Description"
+          content: this.siteDescription
         }
       ]
     };
@@ -68,11 +68,10 @@ export default {
     loading: true,
     pages: [],
     canonical: "",
+    siteDescription: "",
     title: ""
   }),
-  mounted() {
-    this.title = "test";
-  },
+  mounted() {},
   async created() {
     this.loading = true;
 
@@ -87,7 +86,8 @@ export default {
 
       this.loading = false;
     }
-
+    this.siteTitle = `${this.$store.getters.config.siteTitle}`;
+    this.siteDescription = `${this.$store.getters.config.siteDescription}`;
     this.canonical = `${this.$store.getters.config.clientURL}${this.$store.getters.config.publicPath}${this.$route.path}`;
   }
 };
