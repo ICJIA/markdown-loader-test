@@ -18,6 +18,7 @@ export default new Vuex.Store({
     config: null,
     routes: null,
     sections: null,
+    meetings: null,
     searchIndex: null,
     lastDeploy: null,
     lastBuild: null,
@@ -62,6 +63,10 @@ export default new Vuex.Store({
     SET_API_STATUS(state, apiStatus) {
       state.apiStatus = apiStatus;
       console.log("API status code: ", apiStatus);
+    },
+    SET_MEETINGS(state, meetings) {
+      state.meetings = meetings;
+      console.log("Meetings loaded.");
     }
   },
   actions: {
@@ -83,6 +88,9 @@ export default new Vuex.Store({
     },
     setSections({ commit }, sections) {
       commit("SET_SECTIONS", sections);
+    },
+    setMeetings({ commit }, meetings) {
+      commit("SET_MEETINGS", meetings);
     }
   },
   getters: {
@@ -102,6 +110,9 @@ export default new Vuex.Store({
     },
     routes: state => {
       return state.routes;
+    },
+    meetings: state => {
+      return state.meetings;
     }
   }
 });

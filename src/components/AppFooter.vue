@@ -52,7 +52,7 @@
           >&nbsp;|&nbsp;
           <strong>
             <a
-              href="https://github.com/ICJIA/icjia-r3"
+              href="https://github.com/ICJIA/markdown-loader-test"
               target="_blank"
               class="footer-link"
               rel="noreferrer"

@@ -82,13 +82,24 @@ export default {
         : Promise.resolve(require("@/config.json"));
       let config = await configPromise;
       this.$store.dispatch("setConfig", config);
-      this.$store.dispatch("initApp");
 
-      this.loading = false;
+      const context = await require.context(
+        "../public/markdown/meetings",
+        true,
+        /\.md$/
+      );
+      const meetings = await context.keys().map(key => ({
+        ...context(key),
+        path: `/meetings/${key.replace(".md", "").replace("./", "")}`
+      }));
+
+      this.$store.dispatch("setMeetings", meetings);
+      this.$store.dispatch("initApp");
     }
     this.siteTitle = `${this.$store.getters.config.siteTitle}`;
     this.siteDescription = `${this.$store.getters.config.siteDescription}`;
     this.canonical = `${this.$store.getters.config.clientURL}${this.$store.getters.config.publicPath}${this.$route.path}`;
+    this.loading = false;
   }
 };
 </script>

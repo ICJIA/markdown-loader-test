@@ -22,13 +22,21 @@
               order-md="1"
               order="2"
               order-sm="2"
-              class="markdown-body"
             >
               <HomePageContent
                 @hook:mounted="initToc"
                 @click.native="handleClicks"
                 class="dynamic-content"
               ></HomePageContent>
+            </v-col>
+            <v-col
+              cols="12"
+              order-md="2"
+              order="2"
+              order-sm="2"
+              v-if="$store.getters.meetings"
+            >
+              <MeetingList></MeetingList>
             </v-col>
             <v-col
               v-if="showToc"

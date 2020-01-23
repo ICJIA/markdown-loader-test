@@ -19,6 +19,7 @@
     "glob": "^7.1.6",
     "gray-matter": "^4.0.2",
     "loader-utils": "^1.2.3",
+    "lodash": "^4.17.15",
     "lodash.camelcase": "^4.3.0",
     "lodash.debounce": "^4.0.8",
     "lodash.upperfirst": "^4.3.1",
