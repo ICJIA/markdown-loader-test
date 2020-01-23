@@ -29,15 +29,7 @@
                 class="dynamic-content"
               ></HomePageContent>
             </v-col>
-            <v-col
-              cols="12"
-              order-md="2"
-              order="2"
-              order-sm="2"
-              v-if="$store.getters.meetings"
-            >
-              <MeetingList></MeetingList>
-            </v-col>
+
             <v-col
               v-if="showToc"
               cols="12"
@@ -55,6 +47,21 @@
                 :tocHeading="$route.meta.tocHeading"
                 :items="toc"
               />
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col
+              cols="12"
+              sm="12"
+              :md="dynamicFlex()"
+              order-md="2"
+              order="2"
+              order-sm="2"
+              v-if="$store.getters.meetings"
+              class="markdown-body"
+            >
+              <h2 id="meetings">Meetings</h2>
+              <MeetingList class="mt-5"></MeetingList>
             </v-col>
           </v-row>
         </v-container>

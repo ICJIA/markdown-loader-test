@@ -3,7 +3,7 @@ title: "Areas Eligible for R3 Program Grants"
 showInSitemap: true
 tocHeading: "Eligible Areas"
 tocComponent: Toc
-showToc: false
+showToc: true
 ---
 
 ## Auditos adunca parientis quae
@@ -21,5 +21,3 @@ longam in cauda saepe, tenuissima?
 - [Sub folder 2 dynamic](/folder-one/test-three)
 - [File Download](/EligibleAreasCensusTracts.pdf)
 - [External Link](https://www.amazon.com)
-
-## Meetings
