@@ -25,12 +25,12 @@
         })
       "
     >
-      frontmatter-markdown-loader Test
+      Test
     </div>
 
     <v-spacer></v-spacer>
 
-    <v-btn
+    <!-- <v-btn
       href="https://icjia.illinois.gov"
       target="_blank"
       text
@@ -38,7 +38,11 @@
     >
       <span class="mr-2">ICJIA</span>
       <v-icon>mdi-open-in-new</v-icon>
-    </v-btn>
+    </v-btn> -->
+    <span style="font-weight: 900">
+      MENU
+    </span>
+
     <v-app-bar-nav-icon
       aria-label="Menu"
       style="color: black"

@@ -42,7 +42,8 @@
                   order="1"
                   order-sm="1"
                 >
-                  <toc
+                  <component
+                    :is="$route.meta.tocComponent"
                     selector="#scrollArea"
                     top="#baseContentTop"
                     key="home"
@@ -92,6 +93,7 @@ export default {
           .then(fmd => {
             this.title = fmd.attributes.title;
             this.showToc = fmd.attributes.showToc;
+
             NProgress.done();
             return {
               extends: fmd.vue.component
@@ -111,15 +113,27 @@ export default {
       }
     },
     initToc() {
-      let sections = Array.from(document.querySelectorAll("h2"));
-      //console.log(sections);
-      sections.forEach(section => {
-        let obj = {};
-        obj.text = section.innerText;
-        obj.id = section.id;
-        this.toc.push(obj);
-        this.sections.push(`h2#${section.id}`);
-      });
+      if (this.$route.meta.tocComponent === "Toc") {
+        let sections = Array.from(document.querySelectorAll("h2"));
+
+        sections.forEach(section => {
+          let obj = {};
+          obj.text = section.innerText;
+          obj.id = section.id;
+          this.toc.push(obj);
+          this.sections.push(`h2#${section.id}`);
+        });
+      }
+      if (this.$route.meta.tocComponent === "TocDetails") {
+        let sections = document.querySelectorAll("details");
+        sections.forEach(section => {
+          section.id = slugs(section.innerText);
+          let obj = {};
+          obj.text = section.innerText;
+          obj.id = section.id;
+          this.toc.push(obj);
+        });
+      }
     }
   },
   mounted() {}
