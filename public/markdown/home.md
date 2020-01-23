@@ -1,7 +1,8 @@
 ---
-title: "Lorem markdownum Diomede"
-showInSitemap: true
+title: "AREAS ELIGIBLE FOR R3 PROGRAM GRANTS"
 showToc: true
+tocHeading: "Example TOC heading"
+tocComponent: Toc
 ---
 
 ## Auditos adunca parientis quae

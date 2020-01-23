@@ -47,6 +47,7 @@
                     selector="#scrollArea"
                     top="#baseContentTop"
                     key="home"
+                    :tocHeading="$route.meta.tocHeading"
                     :items="toc"
                   />
                 </v-col>
@@ -92,7 +93,6 @@ export default {
           .then(fmd => {
             this.title = fmd.attributes.title;
             this.showToc = fmd.attributes.showToc;
-
             NProgress.done();
             return {
               extends: fmd.vue.component

@@ -2,6 +2,7 @@
 title: "Test One"
 showInSitemap: true
 showToc: true
+tocHeading: "Example TOC heading"
 ---
 
 ## Fortissime et coeptis passa nullo

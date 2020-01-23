@@ -6,7 +6,7 @@
           <v-row class="text-left">
             <v-col cols="12">
               <h1 class="page-title" :id="slugify(title)">
-                {{ title }}
+                {{ $route.meta.title }}
               </h1>
             </v-col>
           </v-row>
@@ -39,10 +39,12 @@
               order="1"
               order-sm="1"
             >
-              <toc
+              <component
+                :is="$route.meta.tocComponent"
                 selector="#scrollArea"
                 top="#baseContentTop"
                 key="home"
+                :tocHeading="$route.meta.tocHeading"
                 :items="toc"
               />
             </v-col>

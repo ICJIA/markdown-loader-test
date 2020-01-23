@@ -15,7 +15,7 @@
       v-if="tocHeading.length"
       ref="anchor"
       style="margin-left: -3px; font-weight: bold;"
-      class="mb-4 hover anchor"
+      class="mb-4 hover anchor visible"
       @click="$vuetify.goTo(0)"
     >
       {{ tocHeading }}

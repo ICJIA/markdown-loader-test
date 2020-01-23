@@ -2,6 +2,7 @@
 title: "Test Three"
 showInSitemap: true
 showToc: true
+tocHeading: "Example Page"
 ---
 
 ## Fortissime et co111eptis passa nullo

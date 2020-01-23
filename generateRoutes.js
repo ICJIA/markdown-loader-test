@@ -34,6 +34,7 @@ paths.forEach(path => {
   routeObj.meta.title = fileObj.data.title || "Untitled";
   routeObj.meta.showInSiteMap = fileObj.data.showInSitemap;
   routeObj.meta.showToc = fileObj.data.showToc;
+  routeObj.meta.tocHeading = fileObj.data.tocHeading || fileObj.data.title;
   routeObj.meta.tocComponent = fileObj.data.tocComponent || "Toc";
   routeObj.meta.createdAt =
     fileObj.data.createdAt || new Date().toJSON().substring(0, 10);
