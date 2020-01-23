@@ -19,3 +19,5 @@ longam in cauda saepe, tenuissima?
 - [Frequently Asked Questions](/faqs)
 - [Sub folder 1 static](/test/one)
 - [Sub folder 2 dynamic](/folder-one/test-three)
+- [File Download](/EligibleAreasCensusTracts.pdf)
+- [External Link](https://www.amazon.com)

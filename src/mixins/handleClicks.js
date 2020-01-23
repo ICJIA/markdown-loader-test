@@ -10,12 +10,23 @@ export const handleClicks = {
       const { target } = $event;
       const href = $event.target.href;
       const mailto = /mailto/g;
+      const isAFile = /^.*\.(pdf|doc|docx|xls|xlsx|zip)$/i.test(href);
 
-      //console.log(target, href);
-      if (
+      if (isAFile) {
+        $event.preventDefault();
+        const filename = href.split("/").pop();
+        console.log("register download event: ", filename);
+        // this.$ga.event({
+        //   eventCategory: "File",
+        //   eventAction: "Download",
+        //   eventLabel: filename
+        // });
+        location.href = href;
+      } else if (
         target &&
         target.matches(".dynamic-content a:not([href*='://'])") &&
         target.href &&
+        !isAFile &&
         !href.match(mailto)
       ) {
         const {
@@ -44,24 +55,9 @@ export const handleClicks = {
 
           this.$router.push(to);
         }
+      } else {
+        return null;
       }
-
-      if (
-        /^.*\.(pdf|doc|docx|xls|xlsx|zip)$/i.test(href) &&
-        href.indexOf("icjia.illinois.gov") > 1
-      ) {
-        $event.preventDefault();
-        const filename = href.split("/").pop();
-        console.log("register download event: ", filename);
-        // this.$ga.event({
-        //   eventCategory: "File",
-        //   eventAction: "Download",
-        //   eventLabel: filename
-        // });
-        const win = window.open(href, "_blank");
-        win.focus();
-      }
-      // TODO: Add YouTube Event tracking
     }
   }
 };
