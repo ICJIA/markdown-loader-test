@@ -3,7 +3,7 @@
 ## Install
 
 ```
-$ git clone https://github.com/ICJIA/icjia-r3.git
+$ git clone https://github.com/ICJIA/markdown-loader-test.git
 $ cd icjia-r3
 $ npm install
 ```
