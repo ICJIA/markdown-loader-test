@@ -13,11 +13,7 @@ lumina coniuncti, limina enim, non sine.
 <details>
 <summary>Mediis capiunt primosque?
 </summary>
-Nam est; patriis nulla [test](/test) fulmina; spondet hasta est munere inimica. Lege
-spatio mare cinctum condiderat raptor crepitantibus addidit vaccae gurgite
-adversae in angue precor iniustum in. Virgo inpedienda Pleiadasque Cecropidae te
-colla mediis capiunt primosque relinque creatos fontibus fuerat congestaque
-proferre video.
+Nam est; patriis nulla fulmina; spondet hasta est munere inimica. 
 </details>
 
 <details>

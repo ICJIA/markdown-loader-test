@@ -23,10 +23,7 @@ const manualRoutes = [
     name: "test",
     component: () =>
       import(/* webpackChunkName: "static" */ "../views/Static.vue")
-  }
-];
-
-const fallBackRoutes = [
+  },
   {
     path: "/404",
     name: "404",
@@ -34,9 +31,13 @@ const fallBackRoutes = [
     component: () => import(/* webpackChunkName: "404" */ "../views/404.vue")
   },
 
-  { path: "/home", redirect: "home" },
+  { path: "/home", redirect: "home" }
+];
 
-  { path: "*", redirect: "/404" }
+const fallBackRoutes = [
+  { path: "*", redirect: "/404" },
+  { path: "/*", redirect: "/404" },
+  { path: "/*/*", redirect: "/404" }
 ];
 
 const routes = [...manualRoutes, ...generatedRoutes, ...fallBackRoutes];

@@ -26,7 +26,6 @@ let generatedRoutes = [];
 
 paths.forEach(path => {
   let fileObj = matter(fs.readFileSync(path, "utf8"));
-
   let routeObj = {};
   routeObj.path = path.replace(base, "").replace(".md", "");
   routeObj.name = slugs(routeObj.path);
@@ -38,6 +37,7 @@ paths.forEach(path => {
   routeObj.meta.tocComponent = fileObj.data.tocComponent || "Toc";
   routeObj.meta.createdAt =
     fileObj.data.createdAt || new Date().toJSON().substring(0, 10);
+  routeObj.meta.updatedAt = fileObj.data.updatedAt || routeObj.meta.createdAt;
 
   if (routeObj.path !== "/home") generatedRoutes.push(routeObj);
 });
