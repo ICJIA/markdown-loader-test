@@ -1,3 +1,12 @@
-const fallbackRoutes = [{ path: "*", redirect: "/404" }];
+const fallbackRoutes = [
+  {
+    path: "*",
+    redirect: "/404",
+    meta: {
+      title: "404",
+      showInSitemap: false
+    }
+  }
+];
 
-export { fallbackRoutes };
+module.exports = fallbackRoutes;

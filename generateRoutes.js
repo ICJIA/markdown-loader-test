@@ -32,7 +32,7 @@ paths.forEach(path => {
   routeObj.meta = {};
   routeObj.meta.path = path;
   routeObj.meta.title = fileObj.data.title || "Untitled";
-  routeObj.meta.showInSiteMap = fileObj.data.showInSitemap;
+  routeObj.meta.showInSitemap = fileObj.data.showInSitemap;
   routeObj.meta.showToc = fileObj.data.showToc;
   routeObj.meta.tocHeading = fileObj.data.tocHeading || fileObj.data.title;
   routeObj.meta.tocComponent = fileObj.data.tocComponent || "Toc";
@@ -52,3 +52,4 @@ const storeData = (data, path) => {
 };
 
 storeData(generatedRoutes, "./src/router/markdownRoutes.json");
+console.log(`Created: ./src/router/markdownRoutes.json`);

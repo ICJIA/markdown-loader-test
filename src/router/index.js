@@ -3,10 +3,10 @@ import VueRouter from "vue-router";
 // import Home from "../views/Home.vue";
 
 const markdownRoutes = require("./markdownRoutes.json");
-const { manualRoutes } = require("./manualRoutes.js");
-const { fallbackRoutes } = require("./fallbackRoutes.js");
+const manualRoutes = require("./manualRoutes.js");
+const fallbackRoutes = require("./fallbackRoutes.js");
 
-//Add component to generated routes
+//Add dynamic 'Page' component to generated routes
 const generatedRoutes = markdownRoutes.map(route => {
   route.component = () =>
     import(/* webpackChunkName: "page" */ "../views/Page.vue");

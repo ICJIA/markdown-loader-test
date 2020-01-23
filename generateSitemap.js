@@ -1,15 +1,19 @@
 const config = require("./src/config.json");
 const fs = require("fs");
 const sm = require("sitemap");
-const routes = require("./src/router/markdownRoutes.json");
+
+const markdownRoutes = require("./src/router/markdownRoutes.json");
+const manualRoutes = require("./src/router/manualRoutes.js");
+const fallbackRoutes = require("./src/router/fallbackRoutes.js");
+const routes = [...manualRoutes, ...markdownRoutes, ...fallbackRoutes];
 
 let urls = routes.map(route => {
-  if (route.meta.showInSiteMap) {
+  if (route.meta.showInSitemap) {
     let obj = {};
     obj.url = `${config.clientURL}${config.publicPath}${route.path}`;
     obj.changefreq = "weekly";
     obj.priority = 0.5;
-    obj.lastmod = route.meta.updatedAt;
+    obj.lastmod = route.meta.updatedAt || new Date().toJSON().substring(0, 10);
     return obj;
   }
 });
