@@ -59,7 +59,7 @@ export default {
   watch: {
     // eslint-disable-next-line no-unused-vars
     $route(to, from) {
-      this.canonical = "https://icjia.illinois.gov/r3" + this.$route.path;
+      this.canonical = `${this.$store.getters.config.clientURL}${this.$store.getters.config.publicPath}${this.$route.path}`;
       console.log(this.canonical);
     }
   },
@@ -71,7 +71,7 @@ export default {
   }),
   async created() {
     this.loading = true;
-    this.canonical = "https://icjia.illinois.gov/r3" + this.$route.path;
+
     //console.log(this.canonical);
     if (!this.$store.state.isAppReady) {
       const configPromise = process.BROWSER_BUILD
@@ -82,7 +82,7 @@ export default {
       this.$store.dispatch("initApp");
       this.loading = false;
     }
-    console.log(this.$root.loading);
+    this.canonical = `${this.$store.getters.config.clientURL}${this.$store.getters.config.publicPath}${this.$route.path}`;
   }
 };
 </script>

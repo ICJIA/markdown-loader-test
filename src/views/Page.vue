@@ -83,7 +83,6 @@ export default {
     this.loading = true;
     this.fetchContent();
     this.loading = false;
-    console.log("end created");
   },
   methods: {
     fetchContent() {
