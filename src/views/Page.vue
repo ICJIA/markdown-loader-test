@@ -2,7 +2,7 @@
   <div>
     <template>
       <div>
-        <base-content id="baseContentTop" class="mb-12" :loading="loading">
+        <base-content id="baseContentTop" class="mb-12" :loading="false">
           <template v-slot:title>
             <v-container>
               <v-row class="text-left">
@@ -82,18 +82,18 @@ export default {
   },
   created() {
     this.loading = true;
+    NProgress.start();
     this.fetchContent();
     this.loading = false;
   },
   methods: {
     fetchContent() {
-      NProgress.start();
       this.markdownContent = async () =>
         await import(`../../public/markdown${this.$route.path}.md`)
           .then(fmd => {
             this.title = fmd.attributes.title;
             this.showToc = fmd.attributes.showToc;
-            NProgress.done();
+
             return {
               extends: fmd.vue.component
             };
@@ -112,6 +112,7 @@ export default {
       }
     },
     initToc() {
+      NProgress.done();
       if (this.$route.meta.tocComponent === "Toc") {
         let sections = Array.from(document.querySelectorAll("h2"));
 
