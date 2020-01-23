@@ -64,7 +64,7 @@ export default {
   mixins: [handleClicks],
   metaInfo() {
     return {
-      title: "Lorem markdownum Diomede"
+      title: this.title
     };
   },
   mounted() {

@@ -27,7 +27,7 @@ export default {
   metaInfo() {
     return {
       // if no subcomponents specify a metaInfo.title, this title will be used
-      title: "frontmatter-markdown-loader Test",
+
       // all titles will be injected into this template
       titleTemplate: "%s",
       htmlAttrs: {
@@ -44,7 +44,7 @@ export default {
         {
           vmid: "description",
           name: "description",
-          content: "frontmatter-markdown-loader Test "
+          content: "Test Description"
         }
       ]
     };
@@ -67,8 +67,12 @@ export default {
   data: () => ({
     loading: true,
     pages: [],
-    canonical: ""
+    canonical: "",
+    title: ""
   }),
+  mounted() {
+    this.title = "test";
+  },
   async created() {
     this.loading = true;
 
@@ -80,8 +84,10 @@ export default {
       let config = await configPromise;
       this.$store.dispatch("setConfig", config);
       this.$store.dispatch("initApp");
+
       this.loading = false;
     }
+
     this.canonical = `${this.$store.getters.config.clientURL}${this.$store.getters.config.publicPath}${this.$route.path}`;
   }
 };

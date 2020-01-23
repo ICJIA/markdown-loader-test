@@ -25,7 +25,7 @@
         })
       "
     >
-      Test
+      {{ siteTitle }}
     </div>
 
     <v-spacer></v-spacer>
@@ -39,7 +39,7 @@
       <span class="mr-2">ICJIA</span>
       <v-icon>mdi-open-in-new</v-icon>
     </v-btn> -->
-    <span style="font-weight: 900">
+    <span style="font-weight: 900" class="hover" @click="toggleDrawer">
       MENU
     </span>
 
@@ -55,6 +55,18 @@
 <script>
 import { EventBus } from "@/event-bus";
 export default {
+  data() {
+    return {
+      siteTitle: ""
+    };
+  },
+  async created() {
+    const configPromise = process.BROWSER_BUILD
+      ? import("@/config.json")
+      : Promise.resolve(require("@/config.json"));
+    let config = await configPromise;
+    this.siteTitle = config.siteTitle;
+  },
   methods: {
     toggleDrawer() {
       EventBus.$emit("toggleDrawer");

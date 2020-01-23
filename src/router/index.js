@@ -16,7 +16,7 @@ const generatedRoutes = markdownRoutes.map(route => {
 Vue.use(VueRouter);
 
 const routes = [...manualRoutes, ...generatedRoutes, ...fallbackRoutes];
-console.dir(routes);
+//console.dir(routes);
 
 const router = new VueRouter({
   mode: "history",

@@ -1,51 +1,17 @@
 ---
-title: "AREAS ELIGIBLE FOR R3 PROGRAM GRANTS"
-showToc: true
-tocHeading: "Example TOC heading"
+title: "Areas Eligible for R3 Program Grants"
+showInSitemap: true
+tocHeading: "Eligible Areas"
 tocComponent: Toc
+showToc: true
 ---
 
-## Auditos adunca parientis quae
+## R3 Map
 
-Lorem markdownum Diomede. Summorum pervenit Eurydices Latiis, per lumine creavit
-_ait_, quid, Quas.
+This map illustrates eligible areas designated for Restore, Reinvest, and Renew (R3) Program grant funding. Areas were identified using community-level data on gun injury, child poverty, unemployment, and state prison commitments and returns, combined with Disproportionately Impacted Areas identified by the [Illinois Department of Commerce and Economic Opportunity](https://www2.illinois.gov/dceo/Pages/default.aspx) (DCEO). Together with the R3 Board, [ICJIA](https://icjia.illinois.gov) will award grant funds to community organizations that support economic development, provide violence prevention and reentry services, and offer youth development and civil legal aid. A notice of funding opportunity for the grants will be released in the coming months.
 
-Tum illa adducto. Mater Apollinis an veste, tu urbem, **mane meruit daret**
-longam in cauda saepe, tenuissima?
+<MapCensusTracts />
 
-- [internal link 1](/test-one)
-- [internal link 2](/test-two)
-- [Frequently Asked Questions](/faqs)
-- [Sub folder 1 static](/test/one)
-- [Sub folder 2 dynamic](/folder-one/test-three)
+## R3 Table
 
-## Pater et sic saniem saevisque brevior populi
-
-Quam perquirere es placidi Othryn: Althaea illa mundi ausis gravis, sit? Nate
-spretor facientes ea Hercule fauces. Alvo est donec haesura! Flamma sacraria
-isdem petiitque me vultum femina Polypemonis venturas **atque**, et miraris
-hirsutus tergo?
-
-Ventos **auro**! Vires nocte, Minervae coactis, o iam honorem iuvenis, sic
-inter, et sponte, unda Athenae? Impune ipsa factaque _ripas qui pars_ quo prima,
-pauper, forma qua, arvaque procul: dei.
-
-## Sua corpusque admotum constiterat gemmae genua duo
-
-Stridore auras. Legum annis **vultu** precibus, tenebris inquit feroci
-contendite tellus. De quam horrentia quae, dilexisse foret de illud cunctos:
-videri hosti hominesque tenebo, et.
-
-Sed puerilibus cervus cumque quae medicamine **domum**, notare tibi et nitorem
-dentes claustraque regna et a! Aderas ora! O adnuit perde tamen vertice cornua
-aufert sortis spelunca confinia ornant. Ab scelus parte placuit deponere,
-ferrumque praecipiti malit moveri quam iam aut tellus quaedam et. Rapit
-pedibusque verbis magni factura non pater omnia, **tu utque**.
-
-Daedalion quod ille dixi tibi dedere pinu amne quas veste census. A spreta mora!
-Diu carmina et prole.
-
-Achillis officiique reservant. Me vidi sed clauduntur raptu _verbis notavi_; per
-in ponderis, tremor ales. Animo Delius; visa noctes, Pindo arma est femineae
-tributuram. Videre inguina antraque non, praetereunt passa cerae posse: exstabat
-ferunt, fortisque motis deciperetur!
+<TableCensus/>

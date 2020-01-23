@@ -7,24 +7,10 @@ const config = require("@/config.json");
 
 Vue.use(Vuex);
 
-// function buildStatusUrl() {
-//   let url;
-//   let endpoint = ".netlify/functions/status";
-//   if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
-//     url = `http://localhost:9000/${endpoint}`;
-//   } else {
-//     url = `${config.clientURL}${config.publicPath}${endpoint}`;
-//   }
-
-//   return url;
-// }
-
-// async function fetchData(endpoint) {
-
-//   let data;
-//   let response = await fetch(endpoint);
-//   return (data = await response.json());
-// }
+const markdownRoutes = require("../router/markdownRoutes.json");
+const manualRoutes = require("../router/manualRoutes.js");
+const fallbackRoutes = require("../router/fallbackRoutes.js");
+const routes = [...manualRoutes, ...markdownRoutes, ...fallbackRoutes];
 
 export default new Vuex.Store({
   state: {
@@ -37,7 +23,7 @@ export default new Vuex.Store({
     lastBuild: null,
     apiStatus: null,
     cache: new Map(),
-
+    routes,
     jwt: localStorage.getItem("jwt") || "",
     userMeta: JSON.parse(localStorage.getItem("userMeta")) || ""
   },
@@ -60,10 +46,7 @@ export default new Vuex.Store({
       state.config = config;
       console.log("Config loaded");
     },
-    SET_ROUTES(state, routes) {
-      state.routes = routes;
-      console.log("Routes loaded");
-    },
+
     SET_SEARCH_INDEX(state, searchIndex) {
       state.searchIndex = searchIndex;
       console.log("Search index loaded");
@@ -94,9 +77,7 @@ export default new Vuex.Store({
     setConfig({ commit }, config) {
       commit("SET_CONFIG", config);
     },
-    setRoutes({ commit }, routes) {
-      commit("SET_ROUTES", routes);
-    },
+
     setSearchIndex({ commit }, searchIndex) {
       commit("SET_SEARCH_INDEX", searchIndex);
     },
@@ -118,6 +99,9 @@ export default new Vuex.Store({
 
     debug: state => {
       return state.config.debug;
+    },
+    routes: state => {
+      return state.routes;
     }
   }
 });
