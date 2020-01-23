@@ -1,8 +1,8 @@
 ---
 title: "Frequently Asked Questions"
 showToc: false
+showInSitemap: true
 tocComponent: TocDetails
-showInSiteMap: true
 ---
 
 Numquam fugit pater erat aut vespere vix, lento dedit; esto. Adfuit reponit:
