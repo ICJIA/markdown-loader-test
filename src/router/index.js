@@ -34,11 +34,7 @@ const manualRoutes = [
   { path: "/home", redirect: "home" }
 ];
 
-const fallBackRoutes = [
-  { path: "*", redirect: "/404" },
-  { path: "/*", redirect: "/404" },
-  { path: "/*/*", redirect: "/404" }
-];
+const fallBackRoutes = [{ path: "*", redirect: "/404" }];
 
 const routes = [...manualRoutes, ...generatedRoutes, ...fallBackRoutes];
 console.dir(routes);

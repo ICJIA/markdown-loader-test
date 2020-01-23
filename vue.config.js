@@ -6,7 +6,8 @@ const markdownItAttrs = require("markdown-it-attrs");
 const config = require("./src/config.json");
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === `production` ? config.publicPath : "/",
+  // publicPath: process.env.NODE_ENV === `production` ? config.publicPath : "/",
+  publicPath: "/",
   transpileDependencies: ["vuetify"],
   pluginOptions: {
     moment: {
