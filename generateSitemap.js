@@ -1,7 +1,7 @@
 const config = require("./src/config.json");
 const fs = require("fs");
 const sm = require("sitemap");
-const routes = require("./public/routes.json");
+const routes = require("./src/router/markdownRoutes.json");
 
 let urls = routes.map(route => {
   if (route.meta.showInSiteMap) {

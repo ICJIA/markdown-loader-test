@@ -51,4 +51,4 @@ const storeData = (data, path) => {
   }
 };
 
-storeData(generatedRoutes, "./public/routes.json");
+storeData(generatedRoutes, "./src/router/markdownRoutes.json");
