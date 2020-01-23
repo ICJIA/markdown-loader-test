@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const base = "src/markdown";
+const base = "public/markdown";
 const slugs = require("slugs");
 
 function findInDir(dir, filter, fileList = []) {
@@ -27,6 +27,7 @@ paths.forEach(path => {
   let routeObj = {};
   routeObj.path = path.replace(base, "").replace(".md", "");
   routeObj.name = slugs(routeObj.path);
+
   if (routeObj.path !== "/home") generatedRoutes.push(routeObj);
 });
 

@@ -56,7 +56,7 @@
 <script>
 import { handleClicks } from "@/mixins/handleClicks";
 const slugs = require("slugs");
-import fm from "../../public/markdown/home.md";
+import fm from "../../public/markdown/folder-one/test-three.md";
 
 export default {
   mixins: [handleClicks],

@@ -2,7 +2,7 @@
   <div>
     <template>
       <div>
-        <base-content id="baseContentTop" class="mb-12" :loading="false">
+        <base-content id="baseContentTop" class="mb-12" :loading="loading">
           <template v-slot:title>
             <v-container>
               <v-row class="text-left">
@@ -79,17 +79,20 @@ export default {
     };
   },
   created() {
+    this.loading = true;
     this.fetchContent();
+    this.loading = false;
+    console.log("end created");
   },
   methods: {
     fetchContent() {
-      this.loading = true;
-      this.markdownContent = () =>
-        import(`@/markdown${this.$route.path}.md`)
+      NProgress.start();
+      this.markdownContent = async () =>
+        await import(`../../public/markdown${this.$route.path}.md`)
           .then(fmd => {
             this.title = fmd.attributes.title;
             this.showToc = fmd.attributes.showToc;
-            this.loading = false;
+            NProgress.done();
             return {
               extends: fmd.vue.component
             };

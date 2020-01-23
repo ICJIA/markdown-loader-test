@@ -9,7 +9,8 @@
     >
       <OutdatedBrowser v-if="$browserDetect.isIE"></OutdatedBrowser>
       <transition name="fade" mode="out-in">
-        <router-view></router-view>
+        <div v-if="$root.loading" style="margin-top: 100px">LOADING</div>
+        <router-view v-else></router-view>
       </transition>
     </v-content>
     <AppFooter v-if="!$browserDetect.isIE"></AppFooter>
@@ -81,6 +82,7 @@ export default {
       this.$store.dispatch("initApp");
       this.loading = false;
     }
+    console.log(this.$root.loading);
   }
 };
 </script>

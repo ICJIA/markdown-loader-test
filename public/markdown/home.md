@@ -15,6 +15,8 @@ longam in cauda saepe, tenuissima?
 - [internal link 1](/test-one)
 - [internal link 2](/test-two)
 - [Frequently Asked Questions](/faqs)
+- [Sub folder 1 static](/test/one)
+- [Sub folder 2 dynamic](/folder-one/test-three)
 
 ## Pater et sic saniem saevisque brevior populi
 
